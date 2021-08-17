@@ -1,2 +1,3 @@
-git add
-git commit
+Here is my joural about learning java with Ms. Tina , and it is my first journal. 
+
+I wish that umprove my java skill 
