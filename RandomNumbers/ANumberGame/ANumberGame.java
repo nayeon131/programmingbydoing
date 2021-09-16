@@ -11,11 +11,6 @@ public class ANumberGame
     System.out.println ("I'm thinking of a number from 1 to 10");
 
     System.out.print( 1 + r.nextInt(10) + " " );
-		System.out.print( 1 + r.nextInt(10) + " " );
-		System.out.print( 1 + r.nextInt(10) + " " );
-		System.out.print( 1 + r.nextInt(10) + " " );
-		System.out.print( 1 + r.nextInt(10) + " " );
-		System.out.print( 1 + r.nextInt(10) + " " );
 		System.out.println();
 
     int num1 = 1 + r.nextInt(10);
