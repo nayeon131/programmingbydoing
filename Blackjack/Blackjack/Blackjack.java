@@ -18,66 +18,92 @@ public class Blackjack
     int Dealercardtotal = Dealercard1 + Dealercard2 ;
     int DealerNewcard = 2 + r.nextInt(10);
 
-    System.out.println ("You get a " + Playercard1 + " and a " + Playercard2);
-    System.out.println ("Your total is " + Playertotal );
+    String Replay;
 
-    System.out.println ("The dealer has a " + Dealercard1 + " showing, and a hidden card." );
-    System.out.println ( "His total is hidden, too.");
 
-    do
-    {
-        System.out.println ("Would you like to hit or stay ? ");
-        choice = keyboard.next();
+  //  do {
 
-        if (choice.equals("hit"))
-        {
 
-          System.out.println ("You drew a " +  PlayerNewcard );
-          Playertotal += PlayerNewcard;
+      System.out.println ("Welcome to Nayeon's Blackjack");
+      System.out.println ("***********************************");
 
-          System.out.println ("Your total is " + Playertotal);
-        }
-    }while (Playertotal < 21 &&  (! choice.equals("stay")));
+      System.out.println ("You get a " + Playercard1 + " and a " + Playercard2);
+      System.out.println ("Your total is " + Playertotal );
 
-    if ( Playertotal <= 21 )
-    {
-      System.out.println ("Okay, dealer's turn.") ;
-      System.out.println ("His hidden card was a " + Dealercard1 );
-      System.out.println ("Your total is " + Dealercardtotal);
+      System.out.println ("The dealer has a " + Dealercard1 + " showing, and a hidden card." );
+      System.out.println ( "His total is hidden, too.");
 
       do
       {
-        if (Dealercardtotal < 17 )
+
+          System.out.println ("Would you like to hit or stay ? ");
+          choice = keyboard.next();
+
+          if (choice.equals("hit"))
+          {
+
+            System.out.println ("You drew a " +  PlayerNewcard );
+            Playertotal += PlayerNewcard;
+            System.out.println ("Your total is " + Playertotal );
+
+          }
+      }while (Playertotal < 21 &&  (! choice.equals("stay")));
+
+      if ( Playertotal <= 21 )
+      {
+        System.out.println ("Okay, dealer's turn.") ;
+        System.out.println ("His hidden card was a " + Dealercard1 );
+        System.out.println ("His total is" + Dealercardtotal);
+
+        do
         {
-        choice = "hit";
-        System.out.println ("He drraws a " + DealerNewcard );
-        Dealercardtotal += DealerNewcard ;
-        System.out.println ("His total is " + Dealercardtotal );
+          if (Dealercardtotal < 17 )
+          {
+          choice = "hit";
+          System.out.println ("Dealer chooses to hit");
+          System.out.println ("He drews a " + DealerNewcard );
+          Dealercardtotal += DealerNewcard ;
+          System.out.println ("His total is " + Dealercardtotal );
+          }
+          else
+          {
+            choice = "stay";
+            System.out.println ("Dealer stays");
+          }
+        }while (Dealercardtotal < 21 && (! choice.equals("stay")));
+      }
+        System.out.println ("Dealer total is " + Dealercardtotal);
+        System.out.println ("Your total is " + Playertotal );
+
+    if (Playertotal <= 21)
+    {
+      if (Dealercardtotal <= 21)
+      {
+        if (Playertotal > Dealercardtotal)
+        {
+          System.out.println ("YOU WIN!");
+        }
+        else if (Playertotal == Dealercardtotal)
+        {
+          System.out.println ("YOU DREW");
         }
         else
         {
-          choice = "stay";
-          System.out.println ("Dealer stays");
+          System.out.println ("YOU LOSE");
         }
-      }while (Dealercardtotal < 21 && (! choice.equals("stay")));
+      }
+      else
+      {
+        System.out.println ("YOU WIN!");
+      }
     }
-    System.out.println ("Dealer total is" + Dealercardtotal);
-    System.out.println ("Your total is" + Playertotal );
-
-  if (Playertotal < 21)
-  {
-    if (Playertotal > Dealercardtotal)
-    {
-      System.out.println ("YOU WIN!");
-    }
-    else if (Playertotal == Dealercardtotal)
-    {
-      System.out.println ("YOU DREW");
-    }
-    else if (Playertotal < Dealercardtotal);
+    else
     {
       System.out.println ("YOU LOSE");
     }
+    //Replay = keyboard.next();
+//  }
+  //while(! Replay.equals("n"));
   }
-}
+
 }
