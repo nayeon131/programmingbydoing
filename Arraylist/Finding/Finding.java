@@ -17,6 +17,7 @@ import java.util.ArrayList;
      }
 
      System.out.println (mylist);
+     System.out.println ("Please enter an Integer" );
      int x = input.nextInt();
      System.out.println ("Value to find " + x );
 
