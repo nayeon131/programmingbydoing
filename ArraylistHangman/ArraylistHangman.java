@@ -14,7 +14,7 @@ public class ArraylistHangman
   {
 
 
-    Scanner scanner = new Scanner (new File ("/Users/nayeon/Documents/GitHub/programmingbydoing/ArraylistHangman/ArraylistHangman.txt"));
+    Scanner scanner = new Scanner (new File ("/Users/nayeon/Documents/GitHub/programmingbydoing/ArraylistHangman/Hangman.txt"));
     Scanner keyboard = new Scanner (System.in);
 
     List <String> words = new ArrayList<>();
@@ -27,17 +27,17 @@ public class ArraylistHangman
 
     String word = words.get(rand.nextInt(words.size()));
 
-    //System.out.println (word);
-
     List<Character> playerGuesses = new ArrayList<>();
 
     while(true)
     {
-      Print(word, playerGuesses);
-      getplayerguess(keyboard, word, playerGuesses);
+
+      printwordstate(word, playerGuesses);
+
+      getplayer(keyboard, word, playerGuesses);
 
 
-      if (Print(word, playerGuesses))
+      if (printwordstate(word, playerGuesses))
       {
           System.out.println("You win!");
           break;
@@ -55,30 +55,31 @@ public class ArraylistHangman
      }
    }
 
-  private static boolean getplayerguess(Scanner keyboard, String word, List<Character> playerGuesses)
+  private static boolean getplayer(Scanner keyboard, String word, List<Character> playerGuesses)
   {
-    System.out.println ("Please enter a letter: ");
-    String letterGuess = keyboard.nextLine();
-    playerGuesses.add(letterGuess.charAt(0));
+      System.out.println ("Please enter a letter: ");
+      String letterGuess = keyboard.nextLine();
+      playerGuesses.add(letterGuess.charAt(0));
 
-    return word.contains(letterGuess);
-
+      return word.contains(letterGuess);
   }
 
-  private static boolean Print(String word, List<Character> playerGuesses)
+
+
+  private static boolean printwordstate (String word, List<Character> playerGuesses)
   {
     int correctCount = 0;
-    for (int i = 0; i < word.length(); i++) {
-      if (playerGuesses.contains(word.charAt(i))){
-        System.out.print(word.charAt(i));
-        correctCount++;
+      for (int i = 0; i < word.length(); i++) {
+        if (playerGuesses.contains(word.charAt(i))){
+          System.out.print(word.charAt(i));
+          correctCount++;
+        }
+        else {
+          System.out.print ("-");
+        }
       }
-      else {
-        System.out.print ("-");
-      }
-    }
-    System.out.println();
+      System.out.println();
 
-    return (word.length() == correctCount);
+      return (word.length() == correctCount);
+    }
   }
-}
